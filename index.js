@@ -20,7 +20,6 @@ app.get('/', function(req, res) {
 // }).listen(8080);
 
 console.log('listening to port', 8080);
-console.log('we are okay...');
 
 var io = socketIO.listen(server);
 io.sockets.on('connection', function(socket) {

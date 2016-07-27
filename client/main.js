@@ -1,5 +1,4 @@
 
- 
 /* videochatroom.js */
 // Compatibility shim
 navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
@@ -25,8 +24,6 @@ $(function(){
   getLocalVideo();
 });
  
- 
- 
 // Call/Video Management
 function getLocalVideo() {
   navigator.getUserMedia({audio: true, video: true}, function(stream){
@@ -45,9 +42,9 @@ function callPeer() {
  
 function processCall(call) {
   // Hang up on an existing call if present
-  if (window.existingCall) {
-    window.existingCall.close();
-  }
+  // if (window.existingCall) {
+  //   window.existingCall.close();
+  // }
  
   // Wait for stream on the call, then set peer video display
   call.on('stream', function(remoteStream){
