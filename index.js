@@ -7,16 +7,13 @@ var express = require('express');
 
 var server = require('http').createServer();
 
-var fileServer = new(nodeStatic.Server)();
 var app = express();
 
-app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/client'));
 
 app.get('/', function(req, res) {
 	res.render('index');
 });
-
-app.listen(8000);
 
 // var app = http.createServer(function(req, res) {
 // 	fileServer.serve(req, res);
@@ -72,6 +69,12 @@ io.sockets.on('connection', function(socket) {
 		}
 	});
 });
+
+server.on('request', app);
+
+server.listen(8000, function() {
+	console.log('server listening to port 8000');
+})
 
 
 
